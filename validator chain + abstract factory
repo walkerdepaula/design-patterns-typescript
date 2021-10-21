@@ -1,0 +1,83 @@
+abstract class ValidatorChain {
+  abstract validade(): boolean;
+}
+
+abstract class ValidatorChainFactory {
+  abstract createItemValidator(): ItemValidator;
+
+  abstract createPackageValidator(): PackageValidator;
+}
+
+abstract class PackageValidator extends ValidatorChain {
+  abstract usefulFunctionB(): string;
+
+  abstract validade(): boolean;
+}
+
+abstract class ItemValidator extends ValidatorChain {
+  abstract validade(): boolean;
+}
+
+
+class ItemValidatorChain extends ItemValidator {
+  useCaseA() {
+    return this;
+  }
+
+  useCaseB() {
+    return this;
+  }
+
+  validade() {
+    // try {
+    //   this
+    //     .useCaseA()
+    //     .useCaseB();
+    // } catch (e) {
+    //   return false;
+    // }
+    return true;
+  }
+}
+
+class PackageValidatorChain extends PackageValidator {
+  private useCaseA() {
+    return this;
+  }
+
+  private useCaseB() {
+    return this;
+  }
+
+  public validade() {
+    // try {
+    //   this
+    //     .useCaseA()
+    //     .useCaseB();
+    // } catch (e) {
+    //   return false;
+    // }
+    return true;
+  }
+}
+
+function clientCode(validatorFactory: ValidatorChainFactory) {
+  const validatorA = validatorFactory.createItemValidator();
+  const validatorB = validatorFactory.createPackageValidator();
+
+  if (validatorA.validade() && validatorB.validade()) {
+    console.log('Todas as validações deram bom');
+  }
+}
+
+class InboundItemScenery extends ValidatorChainFactory {
+  createItemValidator(): ItemValidator {
+    return new ItemValidatorChain()
+  }
+  
+  createPackageValidator(): PackageValidator {
+    return new PackageValidatorChain();
+  }
+}
+
+clientCode(new InboundItemScenery());
