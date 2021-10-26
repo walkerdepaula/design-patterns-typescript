@@ -1,5 +1,5 @@
-import { Package } from "./package.type";
-import { doX, doY, fifthValidation, fistValidation, fourthValidation, secondValidation, sixthValidation, thirdValidation } from "./utils/ValidatorFunctions";
+import { Package } from "../types/package.type";
+import { doX, doY, fifthValidation, fistValidation, fourthValidation, secondValidation, sixthValidation, thirdValidation } from "../utils/ValidatorFunctions";
 
 class PackageValidator {
   fistValidation(): PackageValidator {

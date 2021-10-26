@@ -1,7 +1,7 @@
 import ItemValidator from "./itemValidator";
-import { Package } from "./package.type";
+import { Package } from "../types/package.type";
 import PackageValidator from "./PackageValidator";
-import { doX, doY, fifthValidation, fistValidation, fourthValidation, secondValidation, sixthValidation, thirdValidation } from "./utils/ValidatorFunctions";
+import { doX, doY, fifthValidation, fistValidation, fourthValidation, secondValidation, sixthValidation, thirdValidation } from "../utils/ValidatorFunctions";
 
 class InboundFlow {
   // packageValidator: PackageValidator;

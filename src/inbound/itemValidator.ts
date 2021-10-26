@@ -1,4 +1,4 @@
-import { Package } from "./package.type";
+import { Package } from "../types/package.type";
 
 class ItemValidator {
   validateInbound(meliPackage: Package) {
