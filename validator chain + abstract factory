@@ -18,7 +18,6 @@ abstract class ItemValidator extends ValidatorChain {
   abstract validade(): boolean;
 }
 
-
 class ItemValidatorChain extends ItemValidator {
   useCaseA() {
     return this;
@@ -50,27 +49,24 @@ class PackageValidatorChain extends PackageValidator {
   }
 
   public validade() {
-    // try {
-    //   this
-    //     .useCaseA()
-    //     .useCaseB();
-    // } catch (e) {
-    //   return false;
-    // }
+    this
+      .useCaseA()
+      .useCaseB();
+
     return true;
   }
 }
 
 function clientCode(validatorFactory: ValidatorChainFactory) {
-  const validatorA = validatorFactory.createItemValidator();
-  const validatorB = validatorFactory.createPackageValidator();
+  const validatorItem = validatorFactory.createItemValidator();
+  const validatorPackage = validatorFactory.createPackageValidator();
 
-  if (validatorA.validade() && validatorB.validade()) {
+  if (validatorItem.validade() && validatorPackage.validade()) {
     console.log('Todas as validações deram bom');
   }
 }
 
-class InboundItemScenery extends ValidatorChainFactory {
+class InboundScenery extends ValidatorChainFactory {
   createItemValidator(): ItemValidator {
     return new ItemValidatorChain()
   }
@@ -80,4 +76,4 @@ class InboundItemScenery extends ValidatorChainFactory {
   }
 }
 
-clientCode(new InboundItemScenery());
+clientCode(new InboundScenery());
