@@ -1,8 +1,9 @@
 import { Package } from "../types/package.type";
 import { doX, doY, fifthValidation, fistValidation, fourthValidation, secondValidation, sixthValidation, thirdValidation } from "../utils/ValidatorFunctions";
+import PackageValidator from '../factories/PackageValidator';
 
-class PackageValidator {
-  fistValidation(): PackageValidator {
+class InboundPackageValidator extends PackageValidator {
+  fistValidation(): InboundPackageValidator {
     try {
       if (fistValidation()) {
         doX()
@@ -14,7 +15,7 @@ class PackageValidator {
     }
   }
 
-  secondValidation(): PackageValidator {
+  secondValidation(): InboundPackageValidator {
     try {
       if (secondValidation()) {
         doY()
@@ -26,7 +27,7 @@ class PackageValidator {
     }
   }
 
-  thirdValidation(): PackageValidator {
+  thirdValidation(): InboundPackageValidator {
     try {
       if (thirdValidation()) {
         doX()
@@ -38,7 +39,7 @@ class PackageValidator {
     }
   }
 
-  fourthValidation(): PackageValidator {
+  fourthValidation(): InboundPackageValidator {
     try {
       if (fourthValidation()) {
         doY()
@@ -50,7 +51,7 @@ class PackageValidator {
     }
   }
 
-  fifthValidation(): PackageValidator {
+  fifthValidation(): InboundPackageValidator {
     try {
       if (fifthValidation()) {
         doX()
@@ -62,7 +63,7 @@ class PackageValidator {
     }
   }
 
-  sixthValidation(): PackageValidator {
+  sixthValidation(): InboundPackageValidator {
     try {
       if (sixthValidation()) {
         doY()
@@ -88,6 +89,10 @@ class PackageValidator {
       return false;
     }
   }
+
+  validate() {
+    return true;
+  }
 }
 
-export default PackageValidator;
+export default InboundPackageValidator;
