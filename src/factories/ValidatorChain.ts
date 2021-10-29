@@ -1,5 +1,5 @@
-abstract class ValidatorChain {
-  abstract validate(): boolean;
+interface ValidatorChain {
+  validate(param: unknown): boolean;
 }
 
 export default ValidatorChain;

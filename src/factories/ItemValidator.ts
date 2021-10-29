@@ -1,7 +1,5 @@
 import ValidatorChain from './ValidatorChain';
 
-abstract class ItemValidator extends ValidatorChain {
-  abstract validate(): boolean;
-}
+interface ItemValidator<ValidatorType> extends ValidatorChain {}
 
 export default ItemValidator;

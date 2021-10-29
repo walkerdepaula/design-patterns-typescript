@@ -1,4 +1,3 @@
-import InboundFlow from "./src/inbound/inboundFlow";
 import Flow from './src/flow/Flow';
 import InboundValidatorChainFactory from "./src/inbound/ValidatorChainFactory";
 

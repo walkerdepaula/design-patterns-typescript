@@ -1,10 +1,10 @@
 import ItemValidator from "./ItemValidator";
 import PackageValidator from "./PackageValidator";
 
-abstract class ValidatorChainFactory {
-  abstract createItemValidator(): ItemValidator;
+interface ValidatorChainFactory<ItemValidatorType, PackageValidatorType> {
+  createItemValidator(): ItemValidator<ItemValidatorType>;
 
-  abstract createPackageValidator(): PackageValidator;
+  createPackageValidator(): PackageValidator<PackageValidatorType>;
 }
 
 export default ValidatorChainFactory;

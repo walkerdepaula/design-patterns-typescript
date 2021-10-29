@@ -2,7 +2,7 @@ import { Package } from "../types/package.type";
 import { doX, doY, fifthValidation, fistValidation, fourthValidation, secondValidation, sixthValidation, thirdValidation } from "../utils/ValidatorFunctions";
 import PackageValidator from '../factories/PackageValidator';
 
-class InboundPackageValidator extends PackageValidator {
+class InboundPackageValidator implements PackageValidator<InboundPackageValidator> {
   fistValidation(): InboundPackageValidator {
     try {
       if (fistValidation()) {
@@ -15,7 +15,7 @@ class InboundPackageValidator extends PackageValidator {
     }
   }
 
-  secondValidation(): InboundPackageValidator {
+  private secondValidation(): InboundPackageValidator {
     try {
       if (secondValidation()) {
         doY()
@@ -27,7 +27,7 @@ class InboundPackageValidator extends PackageValidator {
     }
   }
 
-  thirdValidation(): InboundPackageValidator {
+  private thirdValidation(): InboundPackageValidator {
     try {
       if (thirdValidation()) {
         doX()
@@ -39,7 +39,7 @@ class InboundPackageValidator extends PackageValidator {
     }
   }
 
-  fourthValidation(): InboundPackageValidator {
+  private fourthValidation(): InboundPackageValidator {
     try {
       if (fourthValidation()) {
         doY()
@@ -51,7 +51,7 @@ class InboundPackageValidator extends PackageValidator {
     }
   }
 
-  fifthValidation(): InboundPackageValidator {
+  private fifthValidation(): InboundPackageValidator {
     try {
       if (fifthValidation()) {
         doX()
@@ -63,7 +63,7 @@ class InboundPackageValidator extends PackageValidator {
     }
   }
 
-  sixthValidation(): InboundPackageValidator {
+  private sixthValidation(): InboundPackageValidator {
     try {
       if (sixthValidation()) {
         doY()
@@ -75,7 +75,7 @@ class InboundPackageValidator extends PackageValidator {
     }
   }
 
-  validateInbound(meliPackage: Package): boolean {
+  public validate(meliPackage: Package): boolean {
     try {
       this
         .fistValidation()
@@ -83,15 +83,12 @@ class InboundPackageValidator extends PackageValidator {
         .thirdValidation()
         .fourthValidation()
         .fifthValidation()
+        .sixthValidation();
 
       return true;
     } catch(e) {
       return false;
     }
-  }
-
-  validate() {
-    return true;
   }
 }
 

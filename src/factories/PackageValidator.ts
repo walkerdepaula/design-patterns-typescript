@@ -1,9 +1,7 @@
 import ValidatorChain from './ValidatorChain';
 
-abstract class PackageValidator extends ValidatorChain {
-  abstract fistValidation(): PackageValidator;
-
-  abstract validate(): boolean;
+interface PackageValidator<ValidatorType> extends ValidatorChain {
+  fistValidation(): ValidatorType;
 }
 
 export default PackageValidator;
